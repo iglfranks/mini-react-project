@@ -1,14 +1,24 @@
 import React from 'react'
-
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import NavBar from './components/NavBar'
+import Home from './components/Home'
+import SpellIndex from './components/SpellIndex'
+import TrapIndex from './components/TrapIndex'
+import MonsterIndex from './components/MonsterIndex'
 
 const App = () => {
 
- 
   
   return (
-    <>
-      <h1>Project 2</h1>
-    </>
+    <BrowserRouter>
+      <NavBar />
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/spells' component={SpellIndex}/>
+        <Route exact path='/traps' component={TrapIndex}/>
+        <Route exact path='/monsters' component={MonsterIndex}/>
+      </Switch>
+    </BrowserRouter>
   )
 }
 

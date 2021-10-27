@@ -1,0 +1,21 @@
+#hero {
+  background-image: url('../images/herowallpaper.jpeg');
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+#hero-title {
+  margin: 30px;
+}
+
+.buttonz {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cardTitle {
+  font-size: 10px;
+}
