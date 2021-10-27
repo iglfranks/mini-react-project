@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const IndexMap = (props, cardType) => {
+const IndexMap = (props) => {
 
   return (
     <div key={props.id} className='column is-one-fifth-desktop'>
-      <Link to={`/${cardType}/${props.id}`}>
+      <Link to={`/${props.id}`}>
         <div className='card'>
           <div className='card-header'>
             <div className='card-header-title cardTitle'>{props.name}</div>

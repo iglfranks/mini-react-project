@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from '../images/logo.png'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
   return (
@@ -19,7 +20,7 @@ const NavBar = () => {
         </div>
         <div className="navbar-end">
           <div className="navbar-item">
-            <a className="button is-danger">♥️ Wish List</a>
+            <Link to='/wishlist'><a className="button is-danger">♥️ Wish List</a></Link>
           </div>
         </div>
       </div>

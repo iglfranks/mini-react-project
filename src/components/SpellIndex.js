@@ -11,7 +11,6 @@ const SpellIndex = () => {
     const getData = async () => {
       const { data } = await axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?type=spell%20card')
       setCards(data.data)
-
     }
     getData()
 
@@ -30,12 +29,12 @@ const SpellIndex = () => {
           <div className='columns is-multiline'>
             {cards.map(card => {
               return (
-                <IndexMap key={card.id} {...card} cardType={'spells'}/>
+                <IndexMap key={card.id} {...card}/>
               )
             })}
 
           </div>
-          : <div>{'error'}</div>}
+          : <div>{'Loading...'}</div>}
       </div>
     </section>
   )

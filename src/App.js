@@ -5,7 +5,8 @@ import Home from './components/Home'
 import SpellIndex from './components/SpellIndex'
 import TrapIndex from './components/TrapIndex'
 import MonsterIndex from './components/MonsterIndex'
-import SpellsShow from './components/SpellsShow'
+import CardShow from './components/CardShow'
+import WishList from './components/WishList'
 
 const App = () => {
 
@@ -18,7 +19,8 @@ const App = () => {
         <Route exact path='/spells' component={SpellIndex}/>
         <Route exact path='/traps' component={TrapIndex}/>
         <Route exact path='/monsters' component={MonsterIndex}/>
-        <Route exact path='/spells/:id' component={SpellsShow}/>
+        <Route exact path='/:id' component={CardShow}/>
+        <Route exact path='/wishlist' component={WishList}/>
       </Switch>
     </BrowserRouter>
   )
