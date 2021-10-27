@@ -20,7 +20,7 @@ const NavBar = () => {
         </div>
         <div className="navbar-end">
           <div className="navbar-item">
-            <Link to='/wishlist'><a className="button is-danger">♥️ Wish List</a></Link>
+            <Link to='/wishlist' className="button is-danger">♥️ Wish List</Link>
           </div>
         </div>
       </div>

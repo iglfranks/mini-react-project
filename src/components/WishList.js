@@ -2,8 +2,18 @@ import React from 'react'
 
 const WishList = () => {
 
+
+
   return (
-    <h1>wishlist</h1>
+    <section className='section'>
+      <h1 className='title is-centered'>Wishlist</h1>
+      <hr />
+      <div className='container'>
+        <div className='columns'>
+          
+        </div>
+      </div>
+    </section>
   )
 
 }

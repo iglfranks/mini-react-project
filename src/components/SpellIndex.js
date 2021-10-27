@@ -16,7 +16,7 @@ const SpellIndex = () => {
 
   }, [])
 
-  
+  console.log(cards)
   return (
     <section className='section'>
       <div className='container buttonz'>

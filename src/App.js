@@ -19,8 +19,9 @@ const App = () => {
         <Route exact path='/spells' component={SpellIndex}/>
         <Route exact path='/traps' component={TrapIndex}/>
         <Route exact path='/monsters' component={MonsterIndex}/>
-        <Route exact path='/:id' component={CardShow}/>
         <Route exact path='/wishlist' component={WishList}/>
+        <Route exact path='/:id' component={CardShow}/>
+        
       </Switch>
     </BrowserRouter>
   )
