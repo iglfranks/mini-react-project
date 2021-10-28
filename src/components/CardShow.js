@@ -29,7 +29,22 @@ const CardShow = () => {
   }
 
   const handleRemove = () => {
-    window.localStorage.removeItem(`wishListCard${window.localStorage.length}`)
+    // console.log(window.localStorage.wishListCard1 === '68170903')
+    // console.log(id)
+    for (let i = 0; i < window.localStorage.length; i++) {
+      console.log(`window.localStorage.wishListCard${i}`)
+      if (`window.localStorage.wishListCard${i}` === id) {
+        console.log('success')
+        // window.localStorage.removeItem(`wishListCard${i}`, id)
+        
+      } else {
+        console.log(i)
+        console.log('fail')
+        console.log(`window.localStorage.wishListCard${i}`)
+        console.log(window.localStorage.wishListCard)
+        
+      }
+    }
   }
 
 
