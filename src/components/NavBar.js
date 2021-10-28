@@ -4,21 +4,19 @@ import { Link } from 'react-router-dom'
 
 const NavBar = () => {
   // const history = useHistory()
-  const [cards, setCards] = useState(null)
+  const [cards, setCards] = useState([])
   const [allCardId, setAllCardId] = useState()
   const [hasError, setHasError] = useState(false)
 
-
+  
   const handleRandom = async () => {
     try {
       const getData = async () => {
         const { data } = await axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Normal%20Monster,spell%20card,trap%20card')
         // console.log('data', data)
         setCards(data.data)
-
       }
       getData()
-      console.log(Math.floor(Math.random() * cards.length))
 
     } catch (err) {
       console.log(err)
@@ -39,11 +37,11 @@ const NavBar = () => {
     //     return allCardId[Math.floor(Math.random() * allCardId.length)]
     //   }
     // }
-
-
+  
+      
     // console.log(randomChoice())
 
-
+    
   }
 
   //--------------------
@@ -55,29 +53,29 @@ const NavBar = () => {
   //   setAllCardId(allCardIds)
   // }
 
-  // useEffect(() => {
+  useEffect(() => {
 
+  
 
+    const allCardIds = cards.map((card) => {
+      return card.id
+    })
+    setAllCardId(allCardIds)
 
-  // const allCardIds = cards.map((card) => {
-  //   return card.id
-  // })
-  // setAllCardId(allCardIds)
+    // const randomChoice = () => {
+    //   if (allCardId.length < 0) {
+    //     return
+    //   } else {
+    //     return allCardId[Math.floor(Math.random() * allCardId.length)]
+    //   }
+    // }
+  
+      
+    // console.log(randomChoice())
 
-  // const randomChoice = () => {
-  //   if (allCardId.length < 0) {
-  //     return
-  //   } else {
-  //     return allCardId[Math.floor(Math.random() * allCardId.length)]
-  //   }
-  // }
+  }, [cards])
 
-
-  // console.log(randomChoice())
-
-  // }, [cards])
-
-
+  
 
 
 
@@ -85,16 +83,16 @@ const NavBar = () => {
   //   history.push(`/${allCardId.Math.floor()}`)
   // }, [allCardId])
 
-
+ 
   console.log(allCardId)
   return (
     <nav className="navbar is-black" role="navigation" aria-label="main navigation">
       <div className="container">
         <div className="navbar-brand">
           <div className="navbar-item">
-            <Link to='/' className="button is-link has-text-weight-bold is-outlined">❖ Home</Link>
-            <br />
-            <br />
+            <Link to= '/' className="button is-link has-text-weight-bold is-outlined">❖ Home</Link>
+            <br/>
+            <br/>
           </div>
         </div>
         <div className="navbar-start">
