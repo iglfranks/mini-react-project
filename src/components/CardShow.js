@@ -14,7 +14,7 @@ const CardShow = () => {
       try {
         const { data } = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?id=${id}`)
         setChosenCard(data.data)
-
+        console.log('Chosen card', chosenCard)
       } catch (err) {
         setHasError(true)
         // console.log(err)
@@ -24,11 +24,19 @@ const CardShow = () => {
 
   }, [id])
 
-  // console.log('Chosen card', chosenCard)
-  return (
-    <section className='section'>
-      <div className='container'>
+  const handleAdd = () => {
+    window.localStorage.setItem(`wishListCard${window.localStorage.length}`, id)
+  }
 
+  const handleRemove = () => {
+    window.localStorage.removeItem(`wishListCard${window.localStorage.length}`)
+  }
+
+
+  
+  return (
+    <section className='section has-background-info'>
+      <div className='container'>
         {chosenCard ?
           <div>
             <div className='columns'>
@@ -37,42 +45,44 @@ const CardShow = () => {
                   <img src={chosenCard[0].card_images[0].image_url} alt={chosenCard[0].name} />
                 </figure>
               </div>
-              <div className='column is-half'>
+              <div className='column is-half has-text-white'>
                 <div>
-                  <h2><strong>{chosenCard[0].name}</strong></h2>
+                  <h2 className="is-size-3 has-text-black"><strong>{chosenCard[0].name}</strong></h2>
                   <hr />
-                  <h3>{chosenCard[0].type}</h3>
+                  <h3 className="is-size-4 has-text-black"><strong>{chosenCard[0].type}</strong></h3>
                   <hr />
-                  <p>{chosenCard[0].desc}</p>
+                  <p className="is-italic">{chosenCard[0].desc}</p>
                   <hr />
                 </div>
                 <div>
-                  <h2><strong>Price Listings</strong></h2>
+                  <h2 className="is-size-4"><strong>Price Listings</strong></h2>
                   <ul>
+                    <br/>
                     <li>Card Market price: £{chosenCard[0].card_prices[0].cardmarket_price}</li>
+                    <br/>
                     <li>TCG Player price: £{chosenCard[0].card_prices[0].tcgplayer_price}</li>
+                    <br/>
                     <li>E-Bay price: £{chosenCard[0].card_prices[0].ebay_price}</li>
+                    <br/>
                     <li>Amazon price: £{chosenCard[0].card_prices[0].amazon_price}</li>
+                    <br/>
                     <li>Cool Stuff Inc price: £{chosenCard[0].card_prices[0].coolstuffinc_price}</li>
+                    <br/>
                   </ul>
                 </div>
-              </div>
-            </div>
-            <div className='columns'>
-              <div className='column is-full'>
-                <button>Add</button>
-                <button>Remove</button>
+                <hr/>
+                <div className='buttons is-centered'>
+                  <button className="button is-success has-text-weight-bold mx-4 has-text-black" onClick={handleAdd}>+ Add to Wish List</button>
+                  <button className="button is-danger has-text-weight-bold mx-4 has-text-black " onClick={handleRemove} >− Remove from Wish List</button>
+                </div>
               </div>
             </div>
           </div>
           :
-          <h2 className='title has-text-centered'>{hasError ? 'Something went wrong' : 'Loading...'}</h2>
-
+          <h2 className='title has-text-centered has-text-weight-bold is-size-1'>{hasError ? 'Something went wrong 🆘'  : 'Page Loading....⚙︎'} </h2>
         }
-
       </div>
     </section>
   )
-
 }
 export default CardShow

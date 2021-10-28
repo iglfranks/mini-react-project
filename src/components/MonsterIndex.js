@@ -19,15 +19,15 @@ const MonsterIndex = () => {
 
   
   return (
-    <section className='section'>
-      <div className='container buttonz'>
-        <Link to='/spells'><button className='button'>Spell Cards</button></Link>
-        <Link to='/traps'><button className='button'>Trap Cards</button></Link>
-        <Link to='/monsters'><button className='button'>Monster Cards</button></Link>
+    <section className='section has-background-warning'>
+      <div className='buttons is-centered'>
+        <Link to='/spells'><button className='button is-success is-medium has-text-weight-bold mx-2 has-text-black'>Spell Cards</button></Link>
+        <Link to='/traps'><button className='button is-danger is-medium has-text-weight-bold mx-2 has-text-black'>Trap Cards</button></Link>
       </div>
+      <hr/>
       <div className='container'>
         {cards.length > 0 ?
-          <div className='columns is-multiline'>
+          <div className='columns is-multiline has-background-link'>
             
             {cards.map(card => {
               return (
@@ -36,7 +36,7 @@ const MonsterIndex = () => {
             })}
 
           </div>
-          : <div>{'error'}</div>}
+          : <div className= 'has-text-centered is-size-1 has-text-weight-bold'>{'Page Loading....⚙︎'}</div>}
       </div>
     </section>
   )

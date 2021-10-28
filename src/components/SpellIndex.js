@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import IndexMap from './helpers/IndexMap'
 
+
 const SpellIndex = () => {
 
   const [cards, setCards] = useState([])
@@ -18,15 +19,15 @@ const SpellIndex = () => {
 
   console.log(cards)
   return (
-    <section className='section'>
-      <div className='container buttonz'>
-        <Link to='/spells'><button className='button'>Spell Cards</button></Link>
-        <Link to='/traps'><button className='button'>Trap Cards</button></Link>
-        <Link to='/monsters'><button className='button'>Monster Cards</button></Link>
+    <section className='section has-background-primary-dark'>
+      <div className='buttons is-centered'>
+        <Link to='/traps'><button className='button is-danger is-medium has-text-weight-bold mx-2 has-text-black'>Trap Cards</button></Link>
+        <Link to='/monsters'><button className='button is-warning is-medium has-text-weight-bold mx-2 has-text-black'>Monster Cards</button></Link>
       </div>
+      <hr/>
       <div className='container'>
         {cards.length > 0 ?
-          <div className='columns is-multiline'>
+          <div className='columns is-multiline has-background-primary'>
             {cards.map(card => {
               return (
                 <IndexMap key={card.id} {...card}/>
@@ -34,7 +35,8 @@ const SpellIndex = () => {
             })}
 
           </div>
-          : <div>{'Loading...'}</div>}
+          : <div className= 'is-size-1 has-text-weight-bold has-text-centered'>{'Page Loading....⚙︎'}</div>
+        }
       </div>
     </section>
   )

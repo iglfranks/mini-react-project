@@ -1,20 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
+
 const Home = () => {
 
   return (
     <section className='section' id='hero'>
       <div className='hero-body'>
-        <div className='container'>
-          <h1 className='title is-1 has-text-centered' id='hero-title'>
-            Yu-Gi-Oh Card Browse
-          </h1>
+        <div className='field'>
+          <p className='control has-icons-right'>
+            <input className='input is-medium is-link' type='search' placeholder='Search...' />
+            <span className='icon is-large is-right'>
+              <i className='search'>⏎</i>
+            </span>
+          </p>
         </div>
-        <div className='container buttonz' id='buttons'>
-          <Link to='/spells'><button className='button'>Spell Cards</button></Link>
-          <Link to='/traps'><button className='button'>Trap Cards</button></Link>
-          <Link to='/monsters'><button className='button'>Monster Cards</button></Link>
+        <div className='has-text-centered' id='buttons'>
+          <Link to='/spells'><button className='button is-success is-medium is-rounded has-text-weight-bold mx-2 has-text-black'>Spell Cards</button></Link>
+          <Link to='/traps'><button className='button is-danger is-medium is-rounded has-text-weight-bold mx-2 has-text-black'>Trap Cards</button></Link>
+          <Link to='/monsters'><button className='button is-warning is-medium is-rounded has-text-weight-bold mx-2 has-text-black'>Monster Cards</button></Link>
         </div>
       </div>
     </section>
