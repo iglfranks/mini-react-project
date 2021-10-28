@@ -29,10 +29,11 @@ const CardShow = () => {
   }
 
   const handleRemove = () => {
-    // console.log(window.localStorage.wishListCard1 === '68170903')
-    // console.log(id)
+    console.log(window.localStorage.wishListCard0 === id)
     for (let i = 0; i < window.localStorage.length; i++) {
       console.log(`window.localStorage.wishListCard${i}`)
+      console.log(id)
+      console.log(window.localStorage.wishListCard + i === id)
       if (`window.localStorage.wishListCard${i}` === id) {
         console.log('success')
         // window.localStorage.removeItem(`wishListCard${i}`, id)
@@ -41,11 +42,15 @@ const CardShow = () => {
         console.log(i)
         console.log('fail')
         console.log(`window.localStorage.wishListCard${i}`)
-        console.log(window.localStorage.wishListCard)
+        // console.log(window.localStorage.wishListCard)
         
       }
     }
   }
+
+  
+
+  // let keyName = window.localStorage.key(index)
 
 
   

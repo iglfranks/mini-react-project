@@ -6,37 +6,62 @@ import IndexMap from './helpers/IndexMap'
 const MonsterIndex = () => {
 
   const [cards, setCards] = useState([])
+  let search = ''
 
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Normal%20Monster')
       setCards(data.data)
-      
+
     }
     getData()
 
   }, [])
 
-  
+  function filterSearch() {
+    const regexSearch = new RegExp(search, 'i')
+    console.log(regexSearch)
+    return cards.filter(card => {
+      return regexSearch.test(card.name)
+    })
+      
+  }
+
+  function handleText(e) {
+    search = e.target.value
+    console.log(search)
+    filterSearch()
+  }
+
+
   return (
     <section className='section has-background-warning'>
       <div className='buttons is-centered'>
         <Link to='/spells'><button className='button is-success is-medium has-text-weight-bold mx-2 has-text-black'>Spell Cards</button></Link>
         <Link to='/traps'><button className='button is-danger is-medium has-text-weight-bold mx-2 has-text-black'>Trap Cards</button></Link>
       </div>
-      <hr/>
+      <div className='field'>
+        <p className='control has-icons-right'>
+          <input className='input is-medium is-link' type='search' placeholder='Search...' onChange={handleText}/>
+          <span className='icon is-large is-right'>
+            <i className='search'>⏎</i>
+          </span>
+        </p>
+      </div>
+
+      <hr />
       <div className='container'>
         {cards.length > 0 ?
           <div className='columns is-multiline has-background-link'>
-            
+
             {cards.map(card => {
               return (
-                <IndexMap key={card.id} {...card}/>
+                <IndexMap key={card.id} {...card} />
               )
             })}
 
           </div>
-          : <div className= 'has-text-centered is-size-1 has-text-weight-bold'>{'Page Loading....⚙︎'}</div>}
+          : <div className='has-text-centered is-size-1 has-text-weight-bold'>{'Page Loading....⚙︎'}</div>}
       </div>
     </section>
   )

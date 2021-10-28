@@ -1,90 +1,49 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 const NavBar = () => {
-  // const history = useHistory()
+  const history = useHistory()
   const [cards, setCards] = useState([])
   const [allCardId, setAllCardId] = useState()
   const [hasError, setHasError] = useState(false)
 
-  
-  const handleRandom = async () => {
-    try {
-      const getData = async () => {
+  useEffect(() => {
+    const getData = async () => {
+      try {
         const { data } = await axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Normal%20Monster,spell%20card,trap%20card')
         // console.log('data', data)
         setCards(data.data)
+      } catch (err) {
+        console.log(err)
+        setHasError(true)
       }
-      getData()
-
-    } catch (err) {
-      console.log(err)
-      setHasError(true)
     }
+    getData()
+    
+  }, [])
 
-    // assignId()
-
-    // const allCardIds = cards.map((card) => {
-    //   return card.id
-    // })
-    // setAllCardId(allCardIds)
-
-    // const randomChoice = () => {
-    //   if (allCardId.length < 0) {
-    //     return
-    //   } else {
-    //     return allCardId[Math.floor(Math.random() * allCardId.length)]
-    //   }
-    // }
   
-      
-    // console.log(randomChoice())
 
+  function handleRandom() {
+    function number() {
+      const item = [Math.floor(Math.random() * cards.length)]
+      setAllCardId(cards[item])
+    }
+    number()
+    // console.log('test ->>>', allCardId.id)
+    sendToRandom()
+    
     
   }
 
-  //--------------------
-
-  // const assignId = () => {
-  //   const allCardIds = cards.map((card) => {
-  //     return card.id
-  //   })
-  //   setAllCardId(allCardIds)
-  // }
-
-  useEffect(() => {
-
-  
-
-    const allCardIds = cards.map((card) => {
-      return card.id
-    })
-    setAllCardId(allCardIds)
-
-    // const randomChoice = () => {
-    //   if (allCardId.length < 0) {
-    //     return
-    //   } else {
-    //     return allCardId[Math.floor(Math.random() * allCardId.length)]
-    //   }
-    // }
-  
-      
-    // console.log(randomChoice())
-
-  }, [cards])
-
-  
+  function sendToRandom() {
+    history.push(`/${allCardId.id}`)
+    console.log(hasError)
+  }
 
 
 
-  // useEffect(() => {
-  //   history.push(`/${allCardId.Math.floor()}`)
-  // }, [allCardId])
-
- 
-  console.log(allCardId)
   return (
     <nav className="navbar is-black" role="navigation" aria-label="main navigation">
       <div className="container">

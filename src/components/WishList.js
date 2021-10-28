@@ -39,6 +39,7 @@ const WishList = () => {
   return (
     <section className='section'>
       <h1 className='title is-centered'>Wishlist</h1>
+      <h2>Total Price:</h2>
       <hr />
       <div className='container'>
         <div className="columns is-multiline">
