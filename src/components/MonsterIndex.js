@@ -6,7 +6,7 @@ import IndexMap from './helpers/IndexMap'
 const MonsterIndex = () => {
 
   const [cards, setCards] = useState([])
-  let search = ''
+  // let search = ''
 
   useEffect(() => {
     const getData = async () => {
@@ -18,20 +18,22 @@ const MonsterIndex = () => {
 
   }, [])
 
-  function filterSearch() {
-    const regexSearch = new RegExp(search, 'i')
-    console.log(regexSearch)
-    return cards.filter(card => {
-      return regexSearch.test(card.name)
-    })
+  // function filterSearch() {
+  //   const regexSearch = new RegExp(search, 'i')
+  //   console.log(regexSearch)
+  //   return cards.filter(card => {
+  //     return regexSearch.test(card.name)
+  //   })
       
-  }
+  // }
 
-  function handleText(e) {
-    search = e.target.value
-    console.log(search)
-    filterSearch()
-  }
+  // function handleText(e) {
+  //   search = e.target.value
+  //   console.log(search)
+  //   filterSearch()
+  // }
+
+  // ^^^ search bar
 
 
   return (
@@ -46,7 +48,7 @@ const MonsterIndex = () => {
       </div>
       <div className='field'>
         <p className='control has-icons-right'>
-          <input className='input is-medium is-link' type='search' placeholder='Search...' onChange={handleText}/>
+          <input className='input is-medium is-link' type='search' placeholder='Search...'/>
           <span className='icon is-large is-right'>
             <i className='search'>⏎</i>
           </span>

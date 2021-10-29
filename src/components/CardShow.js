@@ -28,17 +28,14 @@ const CardShow = () => {
     window.localStorage.setItem(`wishListCard${window.localStorage.length}`, id)
   }
 
-  // const handleRemove = () => {
-  //   for (let i = 0; i < window.localStorage.length; i++) {
-  //     if (window.localStorage.wishListCard`${i}` === id) {
-  //       console.log('success')
-        
-  //     } else {
-  //       console.log('fail')
-        
-  //     }
-  //   }
-  // }
+  const handleRemove = () => {
+    for (let i = 0; i < window.localStorage.length; i++) {
+      const myValue = window.localStorage.getItem(`wishListCard${i}`)
+      if (myValue === id) {
+        window.localStorage.removeItem(`wishListCard${i}`)
+      }
+    }
+  }
 
 
 
@@ -88,7 +85,7 @@ const CardShow = () => {
                 <hr/>
                 <div className='buttons is-centered'>
                   <button className='button is-success is-small has-text-weight-bold mx-4 has-text-black animate__animated animate__pulse animate__slower animate__infinite' onClick={handleAdd}>+ Add to Wish List</button>
-                  <button className='button is-danger is-small has-text-weight-bold mx-4 has-text-black animate__animated animate__pulse animate__slower animate__infinite'>− Remove from Wish List</button>
+                  <button className='button is-danger is-small has-text-weight-bold mx-4 has-text-black animate__animated animate__pulse animate__slower animate__infinite' onClick={handleRemove}>− Remove from Wish List</button>
                 </div>
               </div>
             </div>
