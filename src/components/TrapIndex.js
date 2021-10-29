@@ -20,9 +20,21 @@ const TrapIndex = () => {
   
   return (
     <section className='section has-background-danger-light'>
+      <div className='container has-background-grey-darker'>
+        <h1 className='is-size-1 has-text-centered has-text-weight-bold has-text-danger animate__animated animate__fadeInRightBig' id='title'>🪤 TRAP CARDS 🪤</h1>
+      </div>
+      <br/>
       <div className='buttons is-centered'>
-        <Link to='/spells'><button className='button is-success is-medium has-text-weight-bold mx-2 has-text-black'>Spell Cards</button></Link>
-        <Link to='/monsters'><button className='button is-warning is-medium has-text-weight-bold mx-2 has-text-black'>Monster Cards</button></Link>
+        <Link to='/spells'><button className='button is-success is-medium has-text-weight-bold mx-2 has-text-black animate__animated animate__pulse animate__slower animate__infinite'>Spell Cards</button></Link>
+        <Link to='/monsters'><button className='button is-warning is-medium has-text-weight-bold mx-2 has-text-black animate__animated animate__pulse animate__slower animate__infinite'>Monster Cards</button></Link>
+      </div>
+      <div className='field'>
+        <p className='control has-icons-right'>
+          <input className='input is-medium is-link' type='search' placeholder='Search...'/>
+          <span className='icon is-large is-right'>
+            <i className='search'>⏎</i>
+          </span>
+        </p>
       </div>
       <hr/>
       <div className='container'>

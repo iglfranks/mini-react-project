@@ -8,6 +8,12 @@ const Home = () => {
   return (
     <section className='section' id='hero'>
       <div className='hero-body'>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <div className='field'>
           <p className='control has-icons-right'>
             <input className='input is-medium is-link' type='search' placeholder='Search...' />
@@ -17,9 +23,9 @@ const Home = () => {
           </p>
         </div>
         <div className='has-text-centered' id='buttons'>
-          <Link to='/spells'><button className='button is-success is-medium is-rounded has-text-weight-bold mx-2 has-text-black'>Spell Cards</button></Link>
-          <Link to='/traps'><button className='button is-danger is-medium is-rounded has-text-weight-bold mx-2 has-text-black'>Trap Cards</button></Link>
-          <Link to='/monsters'><button className='button is-warning is-medium is-rounded has-text-weight-bold mx-2 has-text-black'>Monster Cards</button></Link>
+          <Link to='/spells'><button className='button is-success is-medium is-rounded has-text-weight-bold mx-2 has-text-black animate__animated animate__pulse animate__slower animate__infinite'>Spell Cards</button></Link>
+          <Link to='/traps'><button className='button is-danger is-medium is-rounded has-text-weight-bold mx-2 has-text-black animate__animated animate__pulse animate__slower animate__infinite'>Trap Cards</button></Link>
+          <Link to='/monsters'><button className='button is-warning is-medium is-rounded has-text-weight-bold mx-2 has-text-black animate__animated animate__pulse animate__slower animate__infinite'>Monster Cards</button></Link>
         </div>
       </div>
     </section>

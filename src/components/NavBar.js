@@ -23,24 +23,21 @@ const NavBar = () => {
     
   }, [])
 
-  
+  function sendToRandom() {
+    history.push(`/${allCardId.id}`)
+  }
 
   function handleRandom() {
-    function number() {
-      const item = [Math.floor(Math.random() * cards.length)]
-      setAllCardId(cards[item])
-    }
-    number()
-    // console.log('test ->>>', allCardId.id)
+    const item = [Math.floor(Math.random() * cards.length)]
+    setAllCardId(cards[item])
+    
+    console.log('test ->>>', allCardId.id)
     sendToRandom()
     
     
   }
 
-  function sendToRandom() {
-    history.push(`/${allCardId.id}`)
-    console.log(hasError)
-  }
+  
 
 
 

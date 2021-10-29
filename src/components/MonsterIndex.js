@@ -36,9 +36,13 @@ const MonsterIndex = () => {
 
   return (
     <section className='section has-background-warning'>
+      <div className='container has-background-grey-darker'>
+        <h1 className='is-size-1 has-text-centered has-text-weight-bold has-text-link animate__animated animate__fadeInDownBig' id='title'>👹 MONSTER CARDS 👹</h1>
+      </div>
+      <br/>
       <div className='buttons is-centered'>
-        <Link to='/spells'><button className='button is-success is-medium has-text-weight-bold mx-2 has-text-black'>Spell Cards</button></Link>
-        <Link to='/traps'><button className='button is-danger is-medium has-text-weight-bold mx-2 has-text-black'>Trap Cards</button></Link>
+        <Link to='/spells'><button className='button is-success is-medium has-text-weight-bold mx-2 has-text-black animate__animated animate__pulse animate__slower animate__infinite'>Spell Cards</button></Link>
+        <Link to='/traps'><button className='button is-danger is-medium has-text-weight-bold mx-2 has-text-black animate__animated animate__pulse animate__slower animate__infinite'>Trap Cards</button></Link>
       </div>
       <div className='field'>
         <p className='control has-icons-right'>
@@ -48,7 +52,6 @@ const MonsterIndex = () => {
           </span>
         </p>
       </div>
-
       <hr />
       <div className='container'>
         {cards.length > 0 ?
