@@ -18,7 +18,6 @@ const CardShow = () => {
         console.log('Chosen card', chosenCard)
       } catch (err) {
         setHasError(true)
-        // console.log(err)
       }
     }
     getData()
@@ -29,29 +28,18 @@ const CardShow = () => {
     window.localStorage.setItem(`wishListCard${window.localStorage.length}`, id)
   }
 
-  const handleRemove = () => {
-    console.log(window.localStorage.wishListCard0 === id)
-    for (let i = 0; i < window.localStorage.length; i++) {
-      console.log(`window.localStorage.wishListCard${i}`)
-      console.log(id)
-      console.log(window.localStorage.wishListCard + i === id)
-      if (`window.localStorage.wishListCard${i}` === id) {
-        console.log('success')
-        // window.localStorage.removeItem(`wishListCard${i}`, id)
+  // const handleRemove = () => {
+  //   for (let i = 0; i < window.localStorage.length; i++) {
+  //     if (window.localStorage.wishListCard`${i}` === id) {
+  //       console.log('success')
         
-      } else {
-        console.log(i)
-        console.log('fail')
-        console.log(`window.localStorage.wishListCard${i}`)
-        // console.log(window.localStorage.wishListCard)
+  //     } else {
+  //       console.log('fail')
         
-      }
-    }
-  }
+  //     }
+  //   }
+  // }
 
-  
-
-  // let keyName = window.localStorage.key(index)
 
 
   
@@ -100,7 +88,7 @@ const CardShow = () => {
                 <hr/>
                 <div className='buttons is-centered'>
                   <button className='button is-success is-small has-text-weight-bold mx-4 has-text-black animate__animated animate__pulse animate__slower animate__infinite' onClick={handleAdd}>+ Add to Wish List</button>
-                  <button className='button is-danger is-small has-text-weight-bold mx-4 has-text-black animate__animated animate__pulse animate__slower animate__infinite' onClick={handleRemove}>− Remove from Wish List</button>
+                  <button className='button is-danger is-small has-text-weight-bold mx-4 has-text-black animate__animated animate__pulse animate__slower animate__infinite'>− Remove from Wish List</button>
                 </div>
               </div>
             </div>

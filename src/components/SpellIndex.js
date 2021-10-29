@@ -56,8 +56,3 @@ const SpellIndex = () => {
 }
 export default SpellIndex
 
-{/* <div className='card-content'>
-                      {card.card_sets > 0 ? <h5>{card.card_sets[0].set_rarity}</h5>
-                        : <h5>{'error'}</h5>
-                      }
-                    </div> */}

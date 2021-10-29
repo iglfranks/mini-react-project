@@ -8,8 +8,10 @@ const WishList = () => {
 
   const cardIds = []
   let joinCardIds = ''
+  let totalPrice = 0
 
   const [cards, setCards] = useState([])
+  const [total, setTotal] = useState()
 
   useEffect(() => {
 
@@ -34,8 +36,15 @@ const WishList = () => {
 
   }, [joinCardIds])
 
-  console.log('final cards ->>>', cards)
-  console.log('cardIds ->>>', cardIds)
+  useEffect(() => {
+    cards.map((card) => {
+      for (let i = 0; i < (cards.length / cards.length); i++) {
+        totalPrice += parseFloat(card.card_prices[0].ebay_price)
+      }
+      console.log(totalPrice)
+      setTotal(totalPrice)
+    })
+  }, [cards])
 
 
   return (
@@ -43,11 +52,15 @@ const WishList = () => {
       <div className='container has-background-grey-darker'>
         <h1 className='is-size-1 has-text-centered has-text-weight-bold has-text-link-light animate__animated animate__fadeInLeftBig' id='title'>♥️ WISH LIST ♥️</h1>
       </div>
-      <br/>
+      <br />
       <div className='has-text-centered' id='buttons'>
         <Link to='/spells'><button className='button is-success is-medium has-text-weight-bold mx-2 has-text-black animate__animated animate__pulse animate__slower animate__infinite'>Spell Cards</button></Link>
         <Link to='/traps'><button className='button is-danger is-medium has-text-weight-bold mx-2 has-text-black animate__animated animate__pulse animate__slower animate__infinite'>Trap Cards</button></Link>
         <Link to='/monsters'><button className='button is-warning is-medium has-text-weight-bold mx-2 has-text-black animate__animated animate__pulse animate__slower animate__infinite'>Monster Cards</button></Link>
+      </div>
+      <hr />
+      <div className='has-text-centered'>
+        <h2 className='is-size-5 has-text-centered has-text-weight-bold has-text-black'>Total E-Bay Price: £{total} </h2>
       </div>
       <hr />
       <div className='container'>

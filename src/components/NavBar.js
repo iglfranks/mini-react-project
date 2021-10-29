@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom'
 const NavBar = () => {
   const history = useHistory()
   const [cards, setCards] = useState([])
-  const [allCardId, setAllCardId] = useState()
+  const [allCardId, setAllCardId] = useState([])
   const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
@@ -24,14 +24,18 @@ const NavBar = () => {
   }, [])
 
   function sendToRandom() {
-    history.push(`/${allCardId.id}`)
+    {allCardId ?
+      history.push(`/${allCardId.id}`)
+      : 
+      hasError, 'Something went wrong 🆘'
+    }
+    
   }
 
   function handleRandom() {
     const item = [Math.floor(Math.random() * cards.length)]
     setAllCardId(cards[item])
     
-    console.log('test ->>>', allCardId.id)
     sendToRandom()
     
     
