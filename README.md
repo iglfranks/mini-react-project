@@ -85,7 +85,7 @@ The project was planned by creating a comprehensive list of all components that 
 
 ## Application
 
-With the API database being so large, comprising of thousands of cards, we split the Index pages into 3 different types, meaning that each index page would have it’s own API request. 
+With the API database being so large, comprising of thousands of cards, we split the Index pages into 3 different types, meaning that each index page would have its own API request. 
 
 ```javascript
 
