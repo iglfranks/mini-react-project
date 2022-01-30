@@ -76,16 +76,9 @@ The project was planned by creating a comprehensive list of all components that 
 
 
 
+## The Build
 
-
-
-
-
-
-
-## Application
-
-With the API database being so large, comprising of thousands of cards, we split the Index pages into 3 different types, meaning that each index page would have its own API request. 
+With the API database being so large, consisting of thousands of cards, we split the Index pages into 3 different types, meaning that each index page would have its own API request. As there are 3 different index pages all using the same displaying of information, we refactored the components so we could apply the 'Index Map' to all 3 pages without having to type the same code again. 
 
 ```javascript
 
@@ -99,32 +92,61 @@ useEffect(() => {
   }, [])
 
 ```
+```javascript
+const IndexMap = (props) => {
+
+  return (
+    <div key={props.id} className='column is-one-fifth-desktop'>
+      <Link to={`/${props.id}`}>
+        <div className='card'>
+          <div className='card-header has-background-black'>
+            <div className='card-header-title is-centered cardTitle has-text-white is-underlined pl-0 pr-0 pt-3 pb-3 '>{props.name}</div>
+          </div>
+          <div className='card-image animate__animated animate__pulse animate__infinite animate__slower'>
+            <figure className='image is-1'>
+              <img src={props.card_images[0].image_url} alt={props.name} />
+            </figure>
+          </div>
+          <div className='card-content pl-0 pr-0 pt-2 pb-1 has-text-centered has-background-black has-text-white has-text-weight-bold'>
+            <h5 className="price">£ {props.card_prices[0].ebay_price}</h5>
+          </div>
+        </div>
+      </Link>
+    </div>
+  )
+
+}
+export default IndexMap
+```
 
 
-
-
-
-
-
-
-
-
-After looking through the API requests, we discovered each card had its own average pricing for multiple different market outlets. We decided to display this on the individual ‘card-show’ page and create an index for browsing cards to buy and/or sell.
+After looking through the API requests, we discovered each card had its own average pricing for multiple different market outlets. We decided to display this on the individual ‘card-show’ page and create an index for browsing cards to buy and/or sell. The individual card pages also needed buttons and functions to allow the user to add it to their wishlist.
 
 ![Cardshow](https://i.ibb.co/WG49HBV/Screenshot-2022-01-24-at-13-42-27.png)
 
+```javascript
+const handleAdd = () => {
+    window.localStorage.setItem(`wishListCard${window.localStorage.length}`, id)
+  }
 
-The wishlist page was designed to include the total eBay price of all the cards added, to give the user a summary of their potential purchases.
+  const handleRemove = () => {
+    for (let i = 0; i < window.localStorage.length; i++) {
+      const myValue = window.localStorage.getItem(`wishListCard${i}`)
+      if (myValue === id) {
+        window.localStorage.removeItem(`wishListCard${i}`)
+      }
+    }
+  }
+```
+
+
+The primary function of the wishlist page is to take all the items that had been added to local storage by the user, display them all, and include the total eBay price of all the cards added, giving the user a summary of their potential purchases. The code creating this functionality is described below in the 'Featured Code' section.
 
 ![wishlist](https://i.ibb.co/C6MpLzK/Screenshot-2022-01-24-at-13-43-22.png)
 
 
 
-
-
-
-
-## Featured sections of code
+## Featured sections of code - Wishlist
 
 As we were creating an app purely in the front-end with a third-party API, I used the browser local storage to store the cards added to the wishlist by the user, adding the ID specifically. Through browsing the public API documentation, we saw the API requests had the ability to chain multiple ID’s in a single request, leading me to write a function that requests the data of all individual cards in the wishlist. 
 
@@ -176,11 +198,7 @@ The first function in the component loops through the items in local storage and
 - On first click, the random button throws an error and doesn’t work, but then works on subsequent attempts.
 - Removing items from the wishlist doesn’t work properly, but could have been refined with more time.
 
-## Future features
 
-- Adding functionality to the search bar.
-- Refining the ‘remove from wishlist’ feature.
-- Add mobile responsiveness.
 
 ## Challenges
 
@@ -196,6 +214,12 @@ Gained a great understanding of:
 
 - Learned a lot from pair coding and its benefits. Two people looking at the same code allowed for a higher level of refinement and made bug-fixing and testing a lot more enjoyable with smaller errors being easier to identify. 
 - Became much more comfortable with using Insomnia to test API requests and being able to delve into data to yield a more efficient writing of code. 
+
+## Future features
+
+- Adding functionality to the search bar.
+- Refining the ‘remove from wishlist’ feature.
+- Add mobile responsiveness.
 
 
  
