@@ -4,7 +4,7 @@
 
 ## Overview
 
-The task of my second project with General Assembly was to use a free API from the internet and use it to create an index page of its collection of data, along with other aspects of functionality. In a pair with my classmate Kumar, we were given 48 hours to create this, and were given a large selection of API’s to choose from.
+The task of my second project with General Assembly was to use a free API from the internet and use it to create an index page of its collection of data, along with other aspects of functionality. In a pair with my classmate [Kumar](https://github.com/Kumarmehta019), we were given 48 hours to create this, and were given a large selection of API’s to choose from.
 
 ![Home page](https://i.ibb.co/Fn7HyvW/Screenshot-2022-01-24-at-13-30-15.png)
 
